@@ -1,0 +1,45 @@
+digraph HematiteWaterWorkflow {
+
+    rankdir=TB;
+    graph [
+        fontsize=14,
+        fontname="Helvetica",
+        labelloc="t",
+        label="Classification Workflow for Hematite–Water Interfacial Species"
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor=white,
+        color=black,
+        fontname="Helvetica",
+        fontsize=12
+    ];
+
+    edge [
+        color=black,
+        arrowhead=normal
+    ];
+
+    /* Step 1 */
+    step1 [label="Step 1: Structural Partitioning\n\n• Identify slab O via Fe–O ≤ 2.6 Å\n• Define top/bottom surface planes\n• Remaining O → water-derived"];
+
+    /* Step 2 */
+    step2 [label="Step 2: Chemical Identity of Water-Derived O\n\n• Assign H to nearest O (O–H range)\n• H₂O: 2 H\n• OH*: 1 H\n• O²⁻-like: 0 H"];
+
+    /* Step 3 */
+    step3 [label="Step 3: Proton Transfer to Slab\n\n• Detect H bonded to slab O\n• Identify HO–slab* species\n• Indicates lattice protonation"];
+
+    /* Step 4 */
+    step4 [label="Step 4: Interfacial Assignment\n\n• Assign species to nearest surface\n• Interfacial: ≤ 3.5 Å\n• Bulk-like: > 3.5 Å"];
+
+    /* Step 5 */
+    step5 [label="Step 5: Adsorption State Classification\n\n• Molecular adsorption: H₂O–Fe\n• Dissociative adsorption: HO–slab* + OH*\n• Free fragments\n• Bulk water"];
+
+    /* Workflow */
+    step1 -> step2;
+    step2 -> step3;
+    step3 -> step4;
+    step4 -> step5;
+}
